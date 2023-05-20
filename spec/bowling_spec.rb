@@ -13,11 +13,23 @@ RSpec.describe Bowling do
     expect(game.score).to eq 20
   end
 
+  it 'accounts for the bowler getting a spare' do
+    roll_spare
+    game.roll(3)
+    roll_many(17, 0)
+    expect(game.score).to eq 16
+  end
+
 
   private
 
   def roll_many(number, pins)
     number.times { game.roll(pins) }
+  end
+
+  def roll_spare
+    game.roll 5
+    game.roll 5
   end
 
 end
