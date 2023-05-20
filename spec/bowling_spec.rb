@@ -8,6 +8,11 @@ RSpec.describe Bowling do
     expect(game.score).to eq 0
   end
 
+  it 'accounts for the bowler scoring all ones' do
+    roll_many(20, 1)
+    expect(game.score).to eq 20
+  end
+
 
   private
 

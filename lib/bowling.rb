@@ -12,7 +12,8 @@ class Bowling
     score = 0
     frame = 0
     10.times do
-      score = 0
+      score += sum_of_points_in_frame(frame)
+      frame += 2
     end
     return score
   end
@@ -21,6 +22,7 @@ class Bowling
   end
 
   def sum_of_points_in_frame(frame)
+    @rolls[frame] + @rolls[frame + 1]
   end
 
   def spare_bonus(frame)
